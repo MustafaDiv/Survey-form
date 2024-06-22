@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        body{
+            background-image: linear-gradient(-135deg, #c850c0, #4158d0);
+            background-attachment: scroll;
+
+        }
+
+        .dashboard h2{
+            display: flex;
+            justify-content: center;
+            font-size: xx-large;
+            margin: 5px;
+        }
+
+        .dashboard{
+            border: 1px solid black;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+            cursor: pointer;
+            background-color: black;
+            color: white;
+
+        }
+
+        .dashboard p{
+            display: flex;
+            justify-content: center;
+            padding-bottom: 10px;
+            font-size: x-small;
+        }
+
+        .fname #fnameone{
+            font-size: x-large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .fname{
+            margin-top: 50px
+        }
+
+        .fname #fnametwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 7px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: medium;
+            font-weight: 700;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #fnametwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .lname{
+            margin-top: 25px;
+        }
+
+        .lname #lnameone{
+            font-size: x-large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .lname #lnametwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 7px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: medium;
+            font-weight: 700;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #lnametwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .email{
+            margin-top: 25px;
+        }
+
+        .email #emailone{
+            font-size: x-large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .email #emailtwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+            margin-top: 7px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: medium;
+            font-weight: 700;
+            overflow-y: hidden;
+            padding-right: 9px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #emailtwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .address{
+            margin-top: 25px;
+        }
+
+        .address #addressone{
+            font-size: x-large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .address #adresstwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+            margin-top: 7px;
+            font-size: medium;
+            font-weight: 700;
+            padding-right: 9px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #adresstwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .stadress{
+            margin-top: 25px;
+        }
+
+        .stadress #stadressone{
+            font-size: large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .stadress #stadresstwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+            margin-top: 7px;
+            font-size: medium;
+            font-weight: 700;
+            padding-right: 9px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #stadresstwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .ph{
+            margin-top: 25px;
+        }
+
+        .ph #phone{
+            font-size: x-large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .ph #phntwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+            margin-top: 7px;
+            font-size: medium;
+            font-weight: 700;
+            padding-right: 9px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #phntwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .cuntry{
+            margin-top: 35px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 6px;
+            margin-left: 8px;
+            margin-right: 8px;
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #scuntry{
+            border: 1px solid white;
+            border-radius:10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+
+            
+        }
+        .cuntry #scuntry:focus{
+            border: 1px solid white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: black;
+            outline: none;
+            color: white;
+        }
+
+        #Note{
+            font-size: small;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cuntry #scuntryone{
+            font-size: larger;
+            font-weight: 800;
+            margin-left: 5px;
+        }
+
+        .age{
+            margin-top: 25px;
+        }
+
+        .age #ageone{
+            font-size: x-large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .age #agetwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+            margin-top: 7px;
+            font-size: medium;
+            font-weight: 700;
+            padding-right: 9px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #agetwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .passno{
+            margin-top:30px;
+        }
+
+        .passno #passnoone{
+            font-size: x-large;
+            padding-left: 12px;
+            display: flex;
+            justify-content: start;
+            font-weight: bolder;
+            font-style:italic;
+            text-decoration: underline;
+        }
+
+        .passno #passnotwo{
+            display: flex;
+            justify-content: center;
+            margin-left: 9px;
+            border-radius: 30px;
+            height: 30px;
+            padding-left: 9px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+            margin-top: 7px;
+            font-size: medium;
+            font-weight: 700;
+            padding-right: 9px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #passnotwo:focus{
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .btn{
+            margin-top: 45px;
+        }
+
+        .btn #btnone{
+            display: flex;
+            justify-content: start;
+            font-weight: 700;
+            height: 30px;
+            width: 70px;
+            background-color: white;
+            border: 1px solid white;
+            display: flex;
+            justify-content:start;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            margin-left: 15px;
+        }
+
+        #btnone:hover{
+            background-color: black;
+            color: white;
+            border: 2px solid greenyellow;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.9);
+            text-decoration: underline;
+        }
+
+        input::placeholder{
+            color: rgba(255, 255, 255, 0.2);
+            font-style: italic;
+        }
+
+        hr{
+            color: rgba(0, 0, 0, 0.5);
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.0);
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 30px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+            border-radius: 5px;
+        }
+
+        .footer{
+            margin-top: 120px;
+            margin-left: 15px;
+            margin-right: 40%;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .contactme{
+            margin: 25px;
+            padding-left: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .attri{
+            padding-left: 10px;
+        }
+
+        a{
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover{
+            color: #fff;
+            text-decoration: underline;
+            border: 2px solid greenyellow;
+            border-radius: 5px;
+            background-color: black;
+        }
+
+        .footer:hover{
+            border: 1px solid black;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+            outline: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .gmail{
+            border: 2px solid rgba(0, 0, 0, 0.0);
+            border-radius:10px ;
+            margin-top: 70px;
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .copy{
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-left: 15px;
+            margin-right: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="Action.php">
+            <div class="dashboard">
+                <h2>
+                    Survey Form
+                </h2>
+                <p>Desinged by Mustafa(div)</p>
+            </div>
+            <div class="fname">
+                <label for="fname" id="fnameone">First Name</label>
+                <input type="text" name="fname" id="fnametwo" required placeholder="Enter Name">
+            </div>
+            <div class="lname">
+                <label for="lnameone" id="lnameone">Last name</label>
+                <input type="text" name="lname" id="lnametwo" required placeholder="Enter Name" >
+            </div>
+            <div class="email">
+                <label for="emial" id="emailone">Email</label>
+                <input type="email" id="emailtwo" required placeholder="Enter email">  
+            </div>
+            <div class="address">
+                <label for="adress" id="addressone" >Adress</label>
+                <input type="text" name="adress" id="adresstwo" required placeholder="Enter address" >
+            </div>
+            <div class="stadress">
+                <label for="stadress" id="stadressone">Street Adress (Optional)</label>
+                <input type="text" name="stadress" id="stadresstwo" placeholder="Enter Address">
+            </div>
+            <div class="ph">
+                <label for="phn" id="phone" >Phone Number</label>
+                <input type="number" name="phn" id="phntwo" placeholder="Enter Number">
+            </div>
+            <div class="cuntry">
+                <p id="Note"> 
+                    Note: Only UAE, Pakistan and Afghanistan are applicable
+                </p>
+                <label for="scuntry" id="scuntryone" >Select Country</label>
+                <select name="scuntry" id="scuntry">
+                    <option value="">Select</option>
+                    <option value="UAE">UAE</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Afghanistan">Afghanistan</option>
+                </select>
+            </div>
+            <div class="age">
+                <label for="age" id="ageone">Age</label>
+                <input type="number" id="agetwo" placeholder="Enter age" required>
+            </div>
+            <div class="passno">
+                <label for="passno" id="passnoone">Passport Number</label>
+                <input type="text" id="passnotwo" required placeholder="Enter Passport Number">
+            </div>
+            <div class="btn">
+                <input type="submit" value="Apply" id="btnone">
+            </div>
+            <br>
+            <br>
+            <br>
+        </form>
+    </div>
+    <hr>
+    <div class="footer">
+        <h3 class="contactme">Contact me</h3>
+        <div class="attri">
+            <a href="https://www.instagram.com/mustafa.div99/" target="_blank">Instagram</a><br><br>
+            <a href="https://github.com/MustafaDiv" target="_blank">Github</a><br><br>
+            <a href="ttps://www.fiverr.com/pubghaterhs?up_rollout=true" target="_blank">Fiver</a><br><br>
+            <a href="#">Whatsapp</a><br><br>
+            <a href="https://www.facebook.com/profile.php?id=61559472034563" target="_blank">Facebook</a><br><br>
+        </div>
+    </div>
+    <div class="gmail">
+        <h3 style="padding-left: 10px; padding-top: 8px; ">Email me</h3>
+        <div style="padding-left: 10px; margin-bottom: 10px; padding-top: 5px;">
+            <a href="">mustafaking1808@gmailcom</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="copy">
+        <p style="text-align: center; font-weight: bold; font-size: medium; padding-top: 3px; padding-bottom: 3px;">Copy right disclamer <br> &copy;All right reserved 2022-2024</p>
+    </div>
+    <br>
+    <br>
+    <br>
+</body>
+</html>
